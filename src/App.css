@@ -1,39 +1,122 @@
+* {
+  box-sizing: border-box;
+  background-color: rgb(244, 244, 244);
+  color: #333;
+  font-size: 10px;
+}
+
+/* app */
+
 .App {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 40px;
+}
+
+.title {
+  padding: 2rem;
   text-align: center;
+  font-size: 4.4rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Search */
+
+.form {
+  display: grid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.label {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.App-header {
-  min-height: 100vh;
+.input {
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+  line-height: 2.8rem;
+  border-radius: 20px;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 250ms;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* SearchResults */
+.results-container {
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.results {
+  flex: 2;
+  height: 20px;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
+h3 {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited h3 {
+  color: grey;
+}
+
+a:hover h3 {
+  color: rgb(94, 87, 87);
+}
+
+/* userProfile */
+
+.user-profile {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.username {
+  font-size: 3rem;
+  margin: 5px;
+  padding: 5px;
+  color: rgba(26, 24, 24, 0.308);
+}
+
+.profile-image {
+  image-rendering: auto;
+  margin: 5px;
+  padding: 5px;
+}
+
+.photo-container {
+  display: grid;
+  width: 10rem;
+  height: auto;
+  grid-template-columns: repeat(3, fr);
+  grid-gap: 10px;
+}
+
+.photo {
+  grid-area: 1;
 }
