@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter, NavLink, Route, Switch } from "react-router-dom";
 import Image from "./Image";
 
 const UserProfile = (props) => {
   const { user } = props;
-
-  const [photo, getPhoto] = useState("");
 
   return (
     <>
@@ -23,8 +21,10 @@ const UserProfile = (props) => {
               return (
                 <div className="photo">
                   <NavLink
-                    to={"/image"}
-                    onClick={() => getPhoto(photo.urls.full)}
+                    to={{
+                      pathname: "/image",
+                      state: photo.urls.full,
+                    }}
                   >
                     <img key={idx} src={photo.urls.small} alt={idx} />
                   </NavLink>
@@ -34,10 +34,10 @@ const UserProfile = (props) => {
         </div>
       </div>
       <Switch>
-      <Route path="/image" component={Image}>
-        <Image photo={photo} />
-      </Route>
-    </Switch>
+        <Route path="/image" exact component={Image}>
+          <Image  />
+        </Route>
+      </Switch>
     </>
   );
 };
