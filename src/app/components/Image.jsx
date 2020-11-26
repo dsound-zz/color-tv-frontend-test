@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 const Image = props => {
     console.log(props)
@@ -10,4 +11,10 @@ const Image = props => {
     );
 }
 
-export default Image;
+const mapStateToProps = state => {
+    return {
+        fullPhoto: state.fullPhoto
+    }
+}
+
+export default withRouter(connect(mapStateToProps, null)(Image));

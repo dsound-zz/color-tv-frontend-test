@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Link, Route, Switch } from "react-router-dom";
-import Image from "./Image";
+import { withRouter, NavLink } from "react-router-dom";
+
+import { selectPhotoAction } from "../actions/selectPhotoAction";
 
 const UserProfile = (props) => {
-  const { user } = props;
-  const [photo, getPhoto] = useState("");
-  console.log(photo);
-  const handleClick = (e, selectedPhoto) => {
+  const { user, selectedPhoto } = props;
+
+  const handleClick = (e, fullPhoto) => {
     e.preventDefault();
-    return getPhoto(selectedPhoto);
+    selectedPhoto(fullPhoto);
   };
 
   return (
@@ -26,23 +26,17 @@ const UserProfile = (props) => {
             user.photos.map((photo, idx) => {
               return (
                 <div key={idx} className="photo">
-                  <Link
+                  <NavLink
                     to={"/image"}
                     onClick={(e) => handleClick(e, photo.urls.full)}
                   >
                     <img src={photo.urls.small} alt={idx} />
-                  </Link>
+                  </NavLink>
                 </div>
               );
             })}
         </div>
       </div>
-
-      <Switch>
-        <Route path="/image" component={Image}>
-          <Image photo={photo} />
-        </Route>
-      </Switch>
     </>
   );
 };
@@ -54,4 +48,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(UserProfile);
+const dispatchStateToProps = (dispatch) => {
+  return {
+    selectedPhoto: (fullPhoto) => dispatch(selectPhotoAction(fullPhoto)),
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps, dispatchStateToProps)(UserProfile)
+);
