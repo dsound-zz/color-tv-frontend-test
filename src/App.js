@@ -17,7 +17,7 @@ function App() {
               exact
               render={(routerProps) => <Search {...routerProps} />}
             />
-            
+
             <Route
               path="/userProfile"
               component={UserProfile}

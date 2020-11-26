@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { withRouter, NavLink, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Image from "./Image";
 
 const UserProfile = (props) => {
@@ -26,16 +26,20 @@ const UserProfile = (props) => {
             user.photos.map((photo, idx) => {
               return (
                 <div key={idx} className="photo">
-                  <NavLink to={"/image"} onClick={(e) => handleClick(e, photo.urls.full)}>
+                  <Link
+                    to={"/image"}
+                    onClick={(e) => handleClick(e, photo.urls.full)}
+                  >
                     <img src={photo.urls.small} alt={idx} />
-                  </NavLink>
+                  </Link>
                 </div>
               );
             })}
         </div>
       </div>
+
       <Switch>
-        <Route path="/image" exact component={Image}>
+        <Route path="/image" component={Image}>
           <Image photo={photo} />
         </Route>
       </Switch>
@@ -50,4 +54,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, null)(UserProfile));
+export default connect(mapStateToProps, null)(UserProfile);
