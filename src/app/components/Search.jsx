@@ -15,7 +15,7 @@ const Search = (props) => {
 
   return (
     <>
-    <h1>Unsplash Seaerch</h1>
+    <h1 className="title">Unsplash Seaerch</h1>
       <form className="form" onSubmit={searchPhotos}>
         <label className="label" htmlFor="query">
           {" "}
