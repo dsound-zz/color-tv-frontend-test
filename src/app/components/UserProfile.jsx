@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, NavLink, Route, Switch } from "react-router-dom";
 import Image from "./Image";
 
 const UserProfile = (props) => {
   const { user } = props;
+  const [photo, getPhoto] = useState("");
+  console.log(photo);
+  const handleClick = (e, selectedPhoto) => {
+    e.preventDefault();
+    return getPhoto(selectedPhoto);
+  };
 
   return (
     <>
@@ -19,14 +25,9 @@ const UserProfile = (props) => {
           {user.photos &&
             user.photos.map((photo, idx) => {
               return (
-                <div className="photo">
-                  <NavLink
-                    to={{
-                      pathname: "/image",
-                      state: photo.urls.full,
-                    }}
-                  >
-                    <img key={idx} src={photo.urls.small} alt={idx} />
+                <div key={idx} className="photo">
+                  <NavLink to={"/image"} onClick={(e) => handleClick(e, photo.urls.full)}>
+                    <img src={photo.urls.small} alt={idx} />
                   </NavLink>
                 </div>
               );
@@ -35,7 +36,7 @@ const UserProfile = (props) => {
       </div>
       <Switch>
         <Route path="/image" exact component={Image}>
-          <Image  />
+          <Image photo={photo} />
         </Route>
       </Switch>
     </>

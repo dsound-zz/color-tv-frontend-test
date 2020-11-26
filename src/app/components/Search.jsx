@@ -7,7 +7,7 @@ import "../../App.css";
 const Search = (props) => {
   const { queryAction } = props;
   const [query, setQuery] = useState("");
-
+    
   const searchPhotos = (e) => {
     e.preventDefault();
     queryAction(query);
