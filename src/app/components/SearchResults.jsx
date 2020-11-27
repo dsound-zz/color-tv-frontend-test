@@ -5,21 +5,20 @@ import { connect } from "react-redux";
 import "../../App.css";
 
 const SearchResults = (props) => {
+  console.log(props)
   const { results } = props.results.searches;
   const { getUser } = props;
-
   const handleClick = (result) => {
-    console.log(result);
     getUser(result.username);
   };
 
   return (
     <>
-      <div className="results-container">
+      <div className="search-results">
         {results &&
           results.map((result, idx) => {
             return (
-              <div className="results">
+              <div>
                 <Link
                   onClick={() => handleClick(result)}
                   to={"/userProfile"}

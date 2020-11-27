@@ -8,14 +8,12 @@ const Search = (props) => {
   const { queryAction } = props;
   const [query, setQuery] = useState("");
 
-  const searchPhotos = (e) => {
-    e.preventDefault();
+  const searchPhotos = () => {
     queryAction(query);
   };
 
   return (
     <>
-      <h1 className="title">Unsplash Seaerch</h1>
       <form className="form" onSubmit={searchPhotos}>
         <label className="label" htmlFor="query">
           {" "}
@@ -32,7 +30,9 @@ const Search = (props) => {
           Search
         </button>
       </form>
+      <div className="results">
       <SearchResults results={props.searches} />
+      </div>
     </>
   );
 };

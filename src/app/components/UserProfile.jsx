@@ -13,19 +13,19 @@ const UserProfile = (props) => {
 
   return (
     <>
-      <div className="user-prfile">
-        <div className="username">{user && user.username}</div>
+      
+        <div>{user && user.username}</div>
         <img
           className="profile-image"
           src={user.profile_image && user.profile_image.large}
           alt="profile"
         />
-        <div className="photo-container">
+        <div>
           {user.photos &&
             user.photos.map((photo, idx) => {
               console.log(photo.urls.full);
               return (
-                <div key={idx} className="photo">
+                <div key={idx}>
                   <Link onClick={() => handleClick(photo.urls)} to={"/image"}>
                     <img src={photo.urls.small} alt={idx} />
                   </Link>
@@ -33,7 +33,6 @@ const UserProfile = (props) => {
               );
             })}
         </div>
-      </div>
     </>
   );
 };

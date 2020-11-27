@@ -13,8 +13,10 @@
 }
 
 .container {
+  display: flex;
+  flex-flow: column nowrap;
   margin: 0 auto;
-  max-width: 1000px;
+  align-items: center;
   padding: 40px;
 }
 
@@ -31,7 +33,11 @@ h1 {
   font-size: 5rem;
 }
 .form {
-  display: grid;
+  justify-self: center;
+  flex-basis: 200px;
+   
+  border: black solid 1px; 
+  
 }
 
 .label {
@@ -51,7 +57,7 @@ h1 {
 .button {
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   border: 1px solid rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   font-size: 1.4rem;
@@ -103,13 +109,13 @@ a:hover h3 {
   font-size: 3rem;
   margin: 5px;
   padding: 5px;
-  color: rgba(26, 24, 24, 0.308);
+  color: rgba(26, 24, 24, 0.411);
 }
 
 .profile-image {
   image-rendering: auto;
   margin: 5px;
-  padding: 5px;
+  padding: 15px;
 }
 
 .photo-container {
@@ -117,9 +123,21 @@ a:hover h3 {
   width: 10rem;
   height: auto;
   grid-template-columns: repeat(3, fr);
+  grid-template-rows: auto;
   grid-gap: 10px;
 }
 
 .photo {
   grid-area: 1;
+}
+
+@media only screen and (max-width: 500px) {
+  .user-profile {
+    flex-flow: row nowrap;
+  }
+ .photo-container {
+   display: block;
+   width: 50%;
+   height: auto;
+ }
 }

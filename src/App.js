@@ -10,6 +10,7 @@ function App() {
     <>
       <div className="App">
         <div className="container">
+          <h1 className="title">Unsplash Seaerch</h1>
           <Switch>
             <Route path="/" component={Search} exact>
               <Search />
