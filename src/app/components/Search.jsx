@@ -7,7 +7,7 @@ import "../../App.css";
 const Search = (props) => {
   const { queryAction } = props;
   const [query, setQuery] = useState("");
-    
+
   const searchPhotos = (e) => {
     e.preventDefault();
     queryAction(query);
@@ -15,7 +15,7 @@ const Search = (props) => {
 
   return (
     <>
-    <h1 className="title">Unsplash Seaerch</h1>
+      <h1 className="title">Unsplash Seaerch</h1>
       <form className="form" onSubmit={searchPhotos}>
         <label className="label" htmlFor="query">
           {" "}

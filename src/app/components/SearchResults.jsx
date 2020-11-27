@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getUserAction } from "../actions/getUserAction";
 import { connect } from "react-redux";
 import "../../App.css";
@@ -20,13 +20,13 @@ const SearchResults = (props) => {
           results.map((result, idx) => {
             return (
               <div className="results">
-                <NavLink
+                <Link
                   onClick={() => handleClick(result)}
                   to={"/userProfile"}
                   key={idx}
                 >
                   <h3>{result.username}</h3>
-                </NavLink>
+                </Link>
               </div>
             );
           })}
@@ -41,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(SearchResults));
+export default connect(null, mapDispatchToProps)(SearchResults);

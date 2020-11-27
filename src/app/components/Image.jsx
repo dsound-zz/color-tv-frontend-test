@@ -1,20 +1,20 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Image = props => {
-    console.log(props)
-    return (
-        <div>
-        
-        </div>
-    );
-}
+const Image = (props) => {
+  const { selectedPhotos } = props.photos
 
-const mapStateToProps = state => {
-    return {
-        fullPhoto: state.fullPhoto
-    }
-}
+  return (
+    <div>
+        <img src={selectedPhotos.full} alt="selected"/>
+  </div>
+  );
+};
 
-export default withRouter(connect(mapStateToProps, null)(Image));
+const mapStateToProps = (state) => {
+  return {
+    photos: state.selectedPhotos
+  };
+};
+
+export default connect(mapStateToProps, null)(Image);

@@ -1,8 +1,8 @@
 import React from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Search from "./app/components/Search";
 import UserProfile from "./app/components/UserProfile";
-import Image from "./app/components/Image"
+import Image from "./app/components/Image";
 import "./App.css";
 
 function App() {
@@ -11,25 +11,15 @@ function App() {
       <div className="App">
         <div className="container">
           <Switch>
-            <Route
-              path="/"
-              component={Search}
-              exact
-              render={(routerProps) => <Search {...routerProps} />}
-            />
-
-            <Route
-              path="/userProfile"
-              component={UserProfile}
-              exact
-              render={(routerProps) => <UserProfile {...routerProps} />}
-            />
-            <Route
-              path="/image"
-              component={Image}
-              exact
-              render={(routerProps) => <Image {...routerProps} />}
-            />
+            <Route path="/" component={Search} exact>
+              <Search />
+            </Route>
+            <Route path="/userProfile" component={UserProfile} exact>
+              <UserProfile />
+            </Route>
+            <Route path="/image" component={Image} exact>
+              <Image />
+            </Route>
           </Switch>
         </div>
       </div>
@@ -37,4 +27,4 @@ function App() {
   );
 }
 
-export default withRouter(App);
+export default App;
