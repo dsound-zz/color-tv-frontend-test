@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { searchesReducer } from "./searchesReducer";
 import { getUserReducer } from "./getUserReducer";
-import { selectedPhotoReducer } from "./selectedPhotoReducer"
+import { selectedPhotosReducer } from "./selectedPhotosReducer"
 
 export default combineReducers({
   searches: searchesReducer,
   getUser: getUserReducer,
-  selectedPhoto: selectedPhotoReducer
+  selectedPhotos: selectedPhotosReducer
 });
