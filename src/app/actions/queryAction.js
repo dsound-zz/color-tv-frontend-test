@@ -12,8 +12,8 @@ export const queryAction = query => (dispatch) => {
     .search.users(query)
     .then(toJson)
     .then(json => {
-     
+     console.log(json)
       dispatch({ type: "SEARCH", payload: json });
     })
-    .catch((res) => console.log(res.errors));
+    .catch({ type: "SEARCH_ERRORS", playload: [] });
 };
