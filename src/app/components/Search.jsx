@@ -39,7 +39,7 @@ const Search = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    searches: state.searches,
+    searches: state.searches
   };
 };
 

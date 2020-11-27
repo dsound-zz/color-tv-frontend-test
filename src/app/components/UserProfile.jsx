@@ -13,7 +13,7 @@ const UserProfile = (props) => {
 
   return (
     <>
-      <div className="user-prfile">
+     
         <div className="username">{user && user.username}</div>
         <img
           className="profile-image"
@@ -23,7 +23,6 @@ const UserProfile = (props) => {
         <div className="photo-container">
           {user.photos &&
             user.photos.map((photo, idx) => {
-              console.log(photo.urls.full);
               return (
                 <div key={idx} className="photo">
                   <Link onClick={() => handleClick(photo.urls)} to={"/image"}>
@@ -33,7 +32,6 @@ const UserProfile = (props) => {
               );
             })}
         </div>
-      </div>
     </>
   );
 };

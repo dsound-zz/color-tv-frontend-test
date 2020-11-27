@@ -5,7 +5,7 @@ const Image = (props) => {
   const { selectedPhotos } = props.photos
 
   return (
-    <div>
+    <div className="selected-photo">
         <img src={selectedPhotos.full} alt="selected"/>
   </div>
   );

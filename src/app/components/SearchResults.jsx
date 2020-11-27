@@ -15,22 +15,18 @@ const SearchResults = (props) => {
 
   return (
     <>
-      <div className="results-container">
-        {results &&
-          results.map((result, idx) => {
-            return (
-              <div className="results">
-                <Link
-                  onClick={() => handleClick(result)}
-                  to={"/userProfile"}
-                  key={idx}
-                >
-                  <h3>{result.username}</h3>
-                </Link>
-              </div>
-            );
-          })}
-      </div>
+      {results &&
+        results.map((result, idx) => {
+          return (
+            <Link
+              onClick={() => handleClick(result)}
+              to={"/userProfile"}
+              key={idx}
+            >
+              <h3>{result.username}</h3>
+            </Link>
+          );
+        })}
     </>
   );
 };
